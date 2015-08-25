@@ -42,11 +42,10 @@ data_tidy1 <- data_mean_std %>% gather(variable,value,-(Subject:Activity)) %>%
 ## 5. From the data set in step 4, creates a second, independent tidy data set 
 ## with the average of each variable for each activity and each subject.
 data_tidy2 <- data_tidy1 %>% group_by(Subject, Activity,AnalysisType,Statistic,Axis) %>%
- summarize(Average = mean(value))
+              summarize(Average = mean(value))
 
-data_tidy2
 ## write data from step 5 to file
-#write.table(data_tidy2,"tidy_dataset.txt",row.name=FALSE)
+write.table(data_tidy2,"tidy_dataset.txt",row.name=FALSE)
  
 
 
